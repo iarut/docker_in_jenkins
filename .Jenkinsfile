@@ -6,12 +6,12 @@ pipeline {
 //         }
 //     }
     agent any
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn clean install'
-            }
-        }
+//     stages {
+//         stage('Build') {
+//             steps {
+//                 sh 'mvn clean install'
+//             }
+//         }
 
         stage('Build Docker Image') {
             agent any  // Используем любой агент с установленным Docker
