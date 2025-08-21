@@ -21,14 +21,14 @@ pipeline {
                                 error "JAR file not found. Build failed."
                             }
 
-                            // Создаем простой Dockerfile если его нет
-                            if (!fileExists('Dockerfile')) {
-                                writeFile file: 'Dockerfile', text: """
-        FROM openjdk:17-jdk-slim
-        COPY target/*.jar app.jar
-        ENTRYPOINT ["java", "-jar", "app.jar"]
-        """
-                            }
+                    // Создаем простой Dockerfile если его нет
+                    if (!fileExists('Dockerfile')) {
+                        writeFile file: 'Dockerfile', text: """
+                        FROM openjdk:17-jdk-slim
+                        COPY target/*.jar app.jar
+                        ENTRYPOINT ["java", "-jar", "app.jar"]
+                        """
+                    }
 
                             // Собираем Docker-образ
                             docker.build("my-app:${env.BUILD_ID}")
