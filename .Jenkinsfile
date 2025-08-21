@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   jenkins:
     image: sushant032/jenkins-docker:latest
