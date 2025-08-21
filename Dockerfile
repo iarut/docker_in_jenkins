@@ -17,4 +17,6 @@ RUN apt-get update && \
     usermod -aG docker jenkins && \
     rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
+
 USER jenkins

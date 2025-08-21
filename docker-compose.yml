@@ -1,6 +1,6 @@
 services:
   jenkins:
-    image: my-jenkins:latest   # <-- свой собранный образ (на базе jenkins/jenkins:lts-jdk17 с docker-ce-cli)
+    image: jenkins/jenkins:lts-jdk17   # <-- свой собранный образ (на базе jenkins/jenkins:lts-jdk17 с docker-ce-cli)
     container_name: jenkins-docker
     restart: unless-stopped
     user: root
