@@ -4,6 +4,7 @@ services:
   jenkins:
     image: sushant032/jenkins-docker:latest
     privileged: true
+    restart: unless-stopped
     user: root
     ports:
       - 9696:8080
