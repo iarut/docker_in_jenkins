@@ -2,6 +2,7 @@ FROM jenkins/jenkins:lts-jdk17
 
 USER root
 
+# Установка Docker CLI
 RUN apt-get update && \
     apt-get install -y \
         apt-transport-https \
@@ -17,12 +18,15 @@ RUN apt-get update && \
     usermod -aG docker jenkins && \
     rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
+# Установка Maven
+RUN apt-get update && \
+    apt-get install -y maven && \
+    ln -s /usr/share/maven/bin/mvn /usr/bin/mvn && \
+    rm -rf /var/lib/apt/lists/*
+
+# Установка плагинов Jenkins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
 
-RUN apt-get update && \
-    apt-get install -y maven && \
-    rm -rf /var/lib/apt/lists/*
-
+# Переключаемся на пользователя Jenkins
 USER jenkins
