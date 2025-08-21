@@ -40,7 +40,7 @@
       <providerId>default</providerId>
     </org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty>
     <hudson.security.HudsonPrivateSecurityRealm_-Details>
-      <passwordHash>#jbcrypt:$2a$10$jV1sdyU12wbMoll.r7eSqeytm9kIu4cXXK7S1d5zN9NtgRsk9TNsK</passwordHash>
+      <passwordHash>#jbcrypt:$2a$10$lVPAtjnoaH3d39h1vdnwa.HfxGQWfc9sEoE5T/k2mGEkR4WtLi1H.</passwordHash>
     </hudson.security.HudsonPrivateSecurityRealm_-Details>
   </properties>
 </user>
