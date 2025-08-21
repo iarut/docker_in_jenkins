@@ -6,17 +6,11 @@ pipeline {
     }
 
     stages {
-        stage('Build with Maven') {
-            agent {
-                docker {
-                    image 'maven:3.8.8-openjdk-17'
-                    args '-v $HOME/.m2:/root/.m2' // кэш Maven
+        stage('Build') {
+                    steps {
+                        sh 'mvn clean package'
+                    }
                 }
-            }
-            steps {
-                sh 'mvn clean package'
-            }
-        }
 
         stage('Check JAR') {
             steps {

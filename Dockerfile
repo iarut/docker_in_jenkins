@@ -24,6 +24,7 @@ RUN apt-get update && \
     ln -s /usr/share/maven/bin/mvn /usr/bin/mvn && \
     rm -rf /var/lib/apt/lists/*
 
+ENV PATH="/usr/share/maven/bin:${PATH}"
 # Установка плагинов Jenkins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
