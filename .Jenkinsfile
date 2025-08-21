@@ -1,52 +1,38 @@
 pipeline {
-//     agent {
-//         docker {
-//             image 'maven:3.8.8-openjdk-17'
-//         }
-//     }
-    agent any
-        environment {
-            // Пусть Docker использует сокет хоста
-            DOCKER_HOST = "unix:///var/run/docker.sock"
+    agent {
+        docker {
+            image 'maven:3.8.8-openjdk-17' // более свежая версия Maven и Java
+            args '-v $HOME/.m2:/root/.m2'  // опционально, кэш Maven
         }
+    }
     stages {
-
-        stage('Version') {
-            steps {
-                sh 'mvn --version'
-            }
-        }
         stage('Build') {
             steps {
                 sh 'mvn clean install'
-                stash includes: 'target/*.jar', name: 'builtJar'
             }
         }
-       stage('Build Docker Image') {
-           agent any
-           steps {
-               unstash 'builtJar'
-               script {
-                   // Find the JAR file
-                   def files = findFiles(glob: 'target/*.jar')
-                   if (!files || files.length == 0) {
-                       error("No JAR files found to process")
-                   }
-                   def jarFile = files[0].name
-                   echo "Found JAR file: ${jarFile}"
+        stage('Build Docker Image') {
+                    agent any  // Используем любой агент с установленным Docker
+                    steps {
+                        script {
+                            // Проверяем, что собран JAR-файл
+                            def jarFile = findFiles(glob: 'target/*.jar')[0]?.name
+                            if (!jarFile) {
+                                error "JAR file not found. Build failed."
+                            }
 
-                   // Write Dockerfile
-                   writeFile file: 'Dockerfile', text: """
-       FROM openjdk:17-jdk-slim
-       COPY target/${jarFile} app.jar
-       ENTRYPOINT ["java", "-jar", "app.jar"]
-       """
+                            // Создаем простой Dockerfile если его нет
+                            if (!fileExists('Dockerfile')) {
+                                writeFile file: 'Dockerfile', text: """
+        FROM openjdk:17-jdk-slim
+        COPY target/*.jar app.jar
+        ENTRYPOINT ["java", "-jar", "app.jar"]
+        """
+                            }
 
-                   // Build Docker image using named arguments
-                   sh "docker build -t my-app:${env.BUILD_ID} -f Dockerfile ."
-               }
-           }
-       }
+                            // Собираем Docker-образ
+                            docker.build("my-app:${env.BUILD_ID}")
+                        }
     }
 }
 post {
