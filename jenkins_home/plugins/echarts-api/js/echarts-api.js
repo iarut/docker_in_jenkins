@@ -77,6 +77,24 @@ const echartsJenkinsApi = {
     },
 
     /**
+     * Fixes the emphasis of the series elements in the specified model.
+     *
+     * @param {String} model - the model that contains the chart series
+     */
+    fixEmphasis: function fixEmphasis(model) {
+        const inheritColors = {
+            focus: 'series',
+            color: 'inherit',
+            areaStyle: {color: 'inherit'}
+        };
+        model.series.forEach(seriesElement => {
+            if (!seriesElement.hasOwnProperty('emphasis') || seriesElement.emphasis === null) {
+                seriesElement.emphasis = inheritColors; // NOPMD
+            }
+        });
+    },
+
+    /**
      * Configures the content of the trend configuration dialog.
      *
      * @param {String} suffix - the suffix for the ID of the affected trend configuration dialog
@@ -90,6 +108,7 @@ const echartsJenkinsApi = {
         const numberOfBuildsInput = trendConfiguration.find('#builds-' + suffix);
         const numberOfDaysInput = trendConfiguration.find('#days-' + suffix);
         const useBuildAsDomainCheckBox = trendConfiguration.find('#build-domain-' + suffix);
+        const useDateAsDomainCheckBox = trendConfiguration.find('#date-domain-' + suffix);
         const widthSlider = trendConfiguration.find('#width-' + suffix);
         const heightSlider = trendConfiguration.find('#height-' + suffix);
         const trendLocalStorageId = 'jenkins-echarts-trend-configuration-' + suffix;
@@ -99,6 +118,7 @@ const echartsJenkinsApi = {
             numberOfBuildsInput.val(50);
             numberOfDaysInput.val(0);
             useBuildAsDomainCheckBox.prop('checked', true);
+            useDateAsDomainCheckBox.prop('checked', false);
             widthSlider.val(500);
             heightSlider.val(200);
             if (fillDialog) {
@@ -116,6 +136,7 @@ const echartsJenkinsApi = {
                     numberOfBuildsInput.val(trendJsonConfiguration.numberOfBuilds);
                     numberOfDaysInput.val(trendJsonConfiguration.numberOfDays);
                     useBuildAsDomainCheckBox.prop('checked', trendJsonConfiguration.buildAsDomain === 'true');
+                    useDateAsDomainCheckBox.prop('checked', trendJsonConfiguration.buildAsDomain !== 'true');
                     widthSlider.val(trendJsonConfiguration.width);
                     widthSlider.next().html(trendJsonConfiguration.width)
                     heightSlider.val(trendJsonConfiguration.height);
@@ -172,8 +193,13 @@ const echartsJenkinsApi = {
      *
      * @param {String} suffix - the suffix for the ID of the affected trend configuration dialog
      *     configuration object
+     * @param {Function} fillDialog - a function to fill the configuration dialog with additional values from the JSON
+     *     configuration object
+     * @param {Function} saveDialog - a function to save the configuration dialog values to the JSON configuration
+     *     object
+     *
      */
-    configureChart: function (suffix) {
+    configureChart: function (suffix, fillDialog, saveDialog) {
         const chartConfiguration = jQuery3('#chart-configuration-' + suffix);
         const numberOfBuildsInput = chartConfiguration.find('#builds-' + suffix);
         const numberOfDaysInput = chartConfiguration.find('#days-' + suffix);
@@ -185,6 +211,9 @@ const echartsJenkinsApi = {
             numberOfBuildsInput.val(50);
             numberOfDaysInput.val(0);
             useBuildAsDomainCheckBox.prop('checked', true);
+            if (fillDialog) {
+                fillDialog(chartConfiguration, {});
+            }
         }
 
         chartConfiguration.on('show.bs.modal', function (e) {
@@ -197,6 +226,9 @@ const echartsJenkinsApi = {
                     numberOfBuildsInput.val(trendJsonConfiguration.numberOfBuilds);
                     numberOfDaysInput.val(trendJsonConfiguration.numberOfDays);
                     useBuildAsDomainCheckBox.prop('checked', trendJsonConfiguration.buildAsDomain === 'true');
+                    if (fillDialog) {
+                        fillDialog(chartConfiguration, trendJsonConfiguration);
+                    }
                 }
                 catch (e) {
                     setDefaultValues();
@@ -210,7 +242,15 @@ const echartsJenkinsApi = {
                 numberOfDays: numberOfDaysInput.val(),
                 buildAsDomain: useBuildAsDomainCheckBox.prop('checked') ? 'true' : 'false',
             };
-            localStorage.setItem('jenkins-echarts-chart-configuration-' + suffix, JSON.stringify(configurationJson));
+            if (saveDialog) {
+                const specific = saveDialog(chartConfiguration);
+                localStorage.setItem('jenkins-echarts-chart-configuration-' + suffix,
+                    JSON.stringify({... configurationJson, ... specific}));
+            }
+            else {
+                localStorage.setItem('jenkins-echarts-chart-configuration-' + suffix, JSON.stringify(configurationJson));
+            }
+
         });
 
         chartConfiguration.on('keypress', function (e) {
@@ -268,6 +308,8 @@ const echartsJenkinsApi = {
             return dataZoomOptions;
         }
 
+        echartsJenkinsApi.fixEmphasis(chartModel);
+
         const options = {
             tooltip: {
                 trigger: 'axis',
@@ -321,13 +363,12 @@ const echartsJenkinsApi = {
                 min: chartModel.rangeMin ?? 'dataMin',
                 max: chartModel.rangeMax ?? 'dataMax',
                 axisLabel: {
-                    color: textColor
                 },
                 minInterval: chartModel.integerRangeAxis ? 1 : null
             }],
             series: chartModel.series
         };
-        chart.setOption(options);
+        chart.setOption(options, true);
         chart.resize();
         if (chartClickedEventHandler !== null) {
             chart.getZr().on('click', params => {
@@ -367,6 +408,8 @@ const echartsJenkinsApi = {
         }
 
         function createOptions(chartModel) {
+            echartsJenkinsApi.fixEmphasis(chartModel);
+
             const textColor = getComputedStyle(document.body).getPropertyValue('--text-color') || '#333';
             return {
                 tooltip: {
@@ -466,7 +509,15 @@ const echartsJenkinsApi = {
                             }
 
                             if (selectedBuild > 0) {
-                                window.location.assign(selectedBuild + '/' + urlName);
+                                const buildUrl = selectedBuild + '/' + urlName;
+                                const evt = params.event;
+                                if (evt && (evt.ctrlKey || evt.metaKey)) {
+                                    window.open(buildUrl, '_blank');
+                                } else if (evt && evt.shiftKey) {
+                                    window.open(buildUrl, '_newWindow');
+                                } else {
+                                    window.location.assign(buildUrl)
+                                }
                             }
                         }
                     })
@@ -632,6 +683,11 @@ const echartsJenkinsApi = {
                             show: false
                         }
                     },
+                    emphasis: {
+                        itemStyle: {
+                            color: 'inherit'
+                        }
+                    },
                     labelLine: {
                         normal: {
                             show: true
@@ -641,7 +697,7 @@ const echartsJenkinsApi = {
                 }
                 ]
             };
-            chart.setOption(options);
+            chart.setOption(options, true);
             chart.resize();
 
             const useLinks = chartPlaceHolder.attr('data-links');

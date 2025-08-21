@@ -27,7 +27,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins.workflow</groupId>
   <artifactId>workflow-api</artifactId>
-  <version>1336.vee415d95c521</version>
+  <version>1384.vdc05a_48f535f</version>
   <packaging>hpi</packaging>
   <name>Pipeline: API</name>
   <description>The Jenkins Plugins Parent POM Project</description>
@@ -42,7 +42,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/workflow-api-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/workflow-api-plugin.git</developerConnection>
-    <tag>ee415d95c5216da943c5e516bfcec35dae0d59f0</tag>
+    <tag>dc05a48f535f62827d70b21d3d2ebddf0abc7012</tag>
     <url>https://github.com/jenkinsci/workflow-api-plugin</url>
   </scm>
   <distributionManagement>
@@ -59,14 +59,32 @@
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-step-api</artifactId>
-      <version>678.v3ee58b_469476</version>
+      <version>700.v6e45cb_a_5a_a_21</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>scm-api</artifactId>
-      <version>696.v778d637b_a_762</version>
+      <version>704.v3ce5c542825a_</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jenkins-ci.main</groupId>
+      <artifactId>jenkins-core</artifactId>
+      <version>2.504.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>5.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.3.5</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <build>
@@ -74,7 +92,7 @@
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.56</version>
+        <version>3.61</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

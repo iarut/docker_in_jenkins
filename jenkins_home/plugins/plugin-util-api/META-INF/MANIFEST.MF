@@ -1,27 +1,26 @@
 Manifest-Version: 1.0
-Created-By: Maven Archiver 3.6.0
-Build-Jdk-Spec: 21
+Created-By: Maven Archiver 3.6.4
+Build-Jdk-Spec: 17
 Specification-Title: Plugin Utilities API Plugin
-Specification-Version: 4.1
+Specification-Version: 0.0
 Implementation-Title: Plugin Utilities API Plugin
-Implementation-Version: 4.1.0
+Implementation-Version: 6.1157.vc75ef7129d86
 Group-Id: io.jenkins.plugins
 Artifact-Id: plugin-util-api
 Short-Name: plugin-util-api
 Long-Name: Plugin Utilities API Plugin
 Url: https://github.com/jenkinsci/plugin-util-api-plugin
-Plugin-Version: 4.1.0
-Hudson-Version: 2.426.3
-Jenkins-Version: 2.426.3
-Plugin-Dependencies: commons-lang3-api:3.13.0-62.v7d18e55f51e2,commons-t
- ext-api:1.11.0-95.v22a_d30ee5d36,workflow-api:1291.v51fd2a_625da_7,work
- flow-step-api:657.v03b_e8115821b_,workflow-support:865.v43e78cc44e0d
+Plugin-Version: 6.1157.vc75ef7129d86
+Hudson-Version: 2.479.3
+Jenkins-Version: 2.479.3
+Plugin-Dependencies: commons-lang3-api:3.18.0-98.v3a_674c06072d,commons-
+ text-api:1.13.1-176.v74d88f22034b_,workflow-api:1373.v7b_813f10efa_b_,w
+ orkflow-step-api:704.ve4f0967e98fa_,workflow-support:968.v8f17397e87b_8
 Plugin-Developers: Ullrich Hafner:uhafner:ullrich.hafner@gmail.com
 Plugin-License-Name: MIT license
 Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/plugin-util-a
  pi-plugin.git
-Plugin-ScmTag: v4.1.0
+Plugin-ScmTag: c75ef7129d86c6566056a48ec519984968ba72eb
 Plugin-ScmUrl: https://github.com/jenkinsci/plugin-util-api-plugin
-Plugin-GitHash: 9672cac7d930b1239bcb7d9a194c2521c8f7d743
-Implementation-Build: 9672cac7d930b1239bcb7d9a194c2521c8f7d743
+Implementation-Build: c75ef7129d86c6566056a48ec519984968ba72eb
 

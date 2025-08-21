@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins</groupId>
   <artifactId>pam-auth</artifactId>
-  <version>1.11</version>
+  <version>1.12</version>
   <packaging>hpi</packaging>
   <name>PAM Authentication plugin</name>
   <description>The Jenkins Plugins Parent POM Project</description>
@@ -20,7 +20,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/pam-auth-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/pam-auth-plugin.git</developerConnection>
-    <tag>pam-auth-1.11</tag>
+    <tag>pam-auth-1.12</tag>
     <url>https://github.com/jenkinsci/pam-auth-plugin</url>
   </scm>
   <distributionManagement>
@@ -52,7 +52,7 @@
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.51</version>
+        <version>3.61</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

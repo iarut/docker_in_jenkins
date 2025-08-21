@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.jenkins.plugins</groupId>
   <artifactId>jjwt-api</artifactId>
-  <version>0.11.5-112.ve82dfb_224b_a_d</version>
+  <version>0.11.5-120.v0268cf544b_89</version>
   <packaging>hpi</packaging>
   <name>Java JSON Web Token (JJWT) Plugin</name>
   <description>The Jenkins Plugins Parent POM Project</description>
@@ -19,7 +19,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/jjwt-api-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/jjwt-api-plugin.git</developerConnection>
-    <tag>e82dfb224bad69cab2cb909bc3eee60f8431fe69</tag>
+    <tag>0268cf544b89011ac091e4176b97c555813aa8f2</tag>
     <url>https://github.com/jenkinsci/jjwt-api-plugin</url>
   </scm>
   <distributionManagement>
@@ -36,7 +36,7 @@
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>jackson2-api</artifactId>
-      <version>2.15.1-344.v6eb_55303dc3e</version>
+      <version>2.17.0-379.v02de8ec9f64c</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -63,7 +63,7 @@
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.53</version>
+        <version>3.61</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

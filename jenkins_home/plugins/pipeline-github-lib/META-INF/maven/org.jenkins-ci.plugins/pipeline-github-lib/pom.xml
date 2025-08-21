@@ -27,7 +27,7 @@ THE SOFTWARE.
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins</groupId>
   <artifactId>pipeline-github-lib</artifactId>
-  <version>61.v629f2cc41d83</version>
+  <version>65.v203688e7727e</version>
   <packaging>hpi</packaging>
   <name>Pipeline: GitHub Groovy Libraries</name>
   <description>The Jenkins Plugins Parent POM Project</description>
@@ -42,7 +42,7 @@ THE SOFTWARE.
   <scm child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false" child.scm.url.inherit.append.path="false">
     <connection>scm:git:https://github.com/jenkinsci/pipeline-github-lib-plugin</connection>
     <developerConnection>scm:git:https://github.com/jenkinsci/pipeline-github-lib-plugin</developerConnection>
-    <tag>629f2cc41d8391498c16070cc8835710cc314ff6</tag>
+    <tag>203688e7727e5204348579e04acd61c9417ff68b</tag>
     <url>https://github.com/jenkinsci/pipeline-github-lib-plugin</url>
   </scm>
   <distributionManagement>
@@ -59,13 +59,13 @@ THE SOFTWARE.
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>git</artifactId>
-      <version>5.0.2</version>
+      <version>5.7.0</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>io.jenkins.plugins</groupId>
       <artifactId>pipeline-groovy-lib</artifactId>
-      <version>656.va_a_ceeb_6ffb_f7</version>
+      <version>745.vdf6077913de0</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
@@ -74,7 +74,7 @@ THE SOFTWARE.
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.55</version>
+        <version>3.61</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

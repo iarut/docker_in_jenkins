@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.jenkins.plugins</groupId>
   <artifactId>eddsa-api</artifactId>
-  <version>0.3.0-4.v84c6f0f4969e</version>
+  <version>0.3.0.1-19.vc432d923e5ee</version>
   <packaging>hpi</packaging>
   <name>EDDSA API Plugin</name>
   <description>The Jenkins Plugins Parent POM Project</description>
@@ -19,7 +19,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/eddsa-api-plugin</connection>
     <developerConnection>scm:git:https://github.com/jenkinsci/eddsa-api-plugin</developerConnection>
-    <tag>84c6f0f4969ebd5245ba589832b625b114de7bd0</tag>
+    <tag>c432d923e5eed9d660e9712807284361325149d2</tag>
     <url>https://github.com/jenkinsci/eddsa-api-plugin</url>
   </scm>
   <distributionManagement>
@@ -32,20 +32,12 @@
       <url>https://repo.jenkins-ci.org/snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
-  <dependencies>
-    <dependency>
-      <groupId>net.i2p.crypto</groupId>
-      <artifactId>eddsa</artifactId>
-      <version>0.3.0</version>
-      <scope>compile</scope>
-    </dependency>
-  </dependencies>
   <build>
     <plugins>
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.55</version>
+        <version>3.61</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

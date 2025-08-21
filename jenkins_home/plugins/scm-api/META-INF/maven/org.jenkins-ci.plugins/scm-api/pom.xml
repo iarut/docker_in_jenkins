@@ -27,7 +27,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins</groupId>
   <artifactId>scm-api</artifactId>
-  <version>696.v778d637b_a_762</version>
+  <version>707.v749f968369d4</version>
   <packaging>hpi</packaging>
   <name>SCM API Plugin</name>
   <description>The Jenkins Plugins Parent POM Project</description>
@@ -43,7 +43,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/scm-api-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/scm-api-plugin.git</developerConnection>
-    <tag>778d637ba7625f4dae8fe2ceb0e0aa5b429b9a02</tag>
+    <tag>749f968369d48393f23ce1e39e8e0867adef7802</tag>
     <url>https://github.com/jenkinsci/scm-api-plugin</url>
   </scm>
   <distributionManagement>
@@ -60,14 +60,38 @@
     <dependency>
       <groupId>io.jenkins.plugins</groupId>
       <artifactId>asm-api</artifactId>
-      <version>9.6-3.v2e1fa_b_338cd7</version>
+      <version>9.7.1-97.v4cc844130d97</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jenkins.plugins</groupId>
+      <artifactId>commons-lang3-api</artifactId>
+      <version>3.17.0-84.vb_b_938040b_078</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>structs</artifactId>
-      <version>337.v1b_04ea_4df7c8</version>
+      <version>338.v848422169819</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jenkins-ci.main</groupId>
+      <artifactId>jenkins-core</artifactId>
+      <version>2.479.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>5.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.3.4</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <build>
@@ -75,7 +99,7 @@
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.55</version>
+        <version>3.64</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

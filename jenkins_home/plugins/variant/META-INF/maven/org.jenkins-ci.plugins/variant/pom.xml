@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins</groupId>
   <artifactId>variant</artifactId>
-  <version>60.v7290fc0eb_b_cd</version>
+  <version>70.va_d9f17f859e0</version>
   <packaging>hpi</packaging>
   <name>Variant Plugin</name>
   <description>This user-invisible library plugin allows other multi-modal plugins to behave differently depending on where they run.</description>
@@ -19,7 +19,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/variant-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/variant-plugin.git</developerConnection>
-    <tag>7290fc0ebbcdcffc39ac88a2df5beacc4dbb819d</tag>
+    <tag>ad9f17f859e045b79eb5989c0fbd0ff7648639ac</tag>
     <url>http://github.com/jenkinsci/variant-plugin</url>
   </scm>
   <distributionManagement>
@@ -32,18 +32,12 @@
       <url>https://repo.jenkins-ci.org/snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
-  <repositories>
-    <repository>
-      <id>repo.jenkins-ci.org</id>
-      <url>https://repo.jenkins-ci.org/public/</url>
-    </repository>
-  </repositories>
   <build>
     <plugins>
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.44</version>
+        <version>3.60</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

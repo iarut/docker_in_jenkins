@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.jenkins.plugins</groupId>
   <artifactId>okhttp-api</artifactId>
-  <version>4.11.0-172.vda_da_1feeb_c6e</version>
+  <version>4.11.0-189.v976fa_d3379d6</version>
   <packaging>hpi</packaging>
   <name>OkHttp Plugin</name>
   <description>The Jenkins Plugins Parent POM Project</description>
@@ -21,7 +21,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/okhttp-api-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/okhttp-api-plugin.git</developerConnection>
-    <tag>dada1feebc6e99fb0fc7e210ae737001307b9f50</tag>
+    <tag>976fad3379d6d743f2d93f005fe395ac02650941</tag>
     <url>https://github.com/jenkinsci/okhttp-api-plugin</url>
   </scm>
   <distributionManagement>
@@ -83,13 +83,31 @@
       <version>1.9.22</version>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>org.jenkins-ci.main</groupId>
+      <artifactId>jenkins-core</artifactId>
+      <version>2.479.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>5.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.3.4</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.51</version>
+        <version>3.61</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

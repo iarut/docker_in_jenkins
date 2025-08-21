@@ -62,10 +62,25 @@ pre {
 }
 
 .tabBar .tab a.active {
-    background: var(--tabs-item-background--selected);
-    color: var(--tabs-item-foreground--selected);
-    cursor: default;
     z-index: 2;
+    cursor: default;
+    font-weight: 450;
+    color: var(--tabs-item-foreground--active);
+
+    &::before {
+        background-clip: padding-box;
+        background-color: var(--tabs-item-background--selected) !important;
+        border: var(--jenkins-border--subtle) !important;
+    }
+
+    &::after {
+        display: none;
+    }
+
+    &::before,
+    &::after {
+        inset: 0;
+    }
 }
 
 /* ------------------------------------------------------------------------------------------------------------------- */
@@ -139,4 +154,28 @@ pre {
     font-size: 0.75rem;
     backdrop-filter: contrast(0.6) brightness(2.4) saturate(2) blur(15px);
     box-shadow: 0 0 8px 2px rgba(0,0,30,.05), 0 0 1px 1px rgba(0,0,20,.025), 0 10px 20px rgba(0,0,20,.15);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+/* Console output                                                                                                      */
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+.bs5-console-output {
+    margin: 0 -1rem -1rem;
+    padding: 0 1rem 1rem;
+    overflow-y: auto;
+
+    pre {
+        background: transparent;
+        border: none;
+        margin: 0;
+        padding: 0;
+        line-height: 1.75;
+        font-size: var(--font-size-sm);
+        overflow-wrap: break-word;
+
+        a {
+            overflow-wrap: break-word;
+        }
+    }
 }

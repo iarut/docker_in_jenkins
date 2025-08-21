@@ -27,7 +27,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins.workflow</groupId>
   <artifactId>workflow-basic-steps</artifactId>
-  <version>1058.vcb_fc1e3a_21a_9</version>
+  <version>1079.vce64b_a_929c5a_</version>
   <packaging>hpi</packaging>
   <name>Pipeline: Basic Steps</name>
   <description>The Jenkins Plugins Parent POM Project</description>
@@ -42,7 +42,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/workflow-basic-steps-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/workflow-basic-steps-plugin.git</developerConnection>
-    <tag>cbfc1e3a21a989db5a1c6537638c6a052dd04d82</tag>
+    <tag>ce64ba929c5af0bc42bc3d00fe4debea25a6ba5f</tag>
     <url>https://github.com/jenkinsci/workflow-basic-steps-plugin</url>
   </scm>
   <distributionManagement>
@@ -65,37 +65,37 @@
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-step-api</artifactId>
-      <version>639.v6eca_cd8c04a_a_</version>
+      <version>686.v603d058a_e148</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>mailer</artifactId>
-      <version>448.v5b_97805e3767</version>
+      <version>489.vd4b_25144138f</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-api</artifactId>
-      <version>1213.v646def1087f9</version>
+      <version>1336.vee415d95c521</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>structs</artifactId>
-      <version>324.va_f5d6774f3a_d</version>
+      <version>338.v848422169819</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>apache-httpcomponents-client-4-api</artifactId>
-      <version>4.5.14-150.v7a_b_9d17134a_5</version>
+      <version>4.5.14-208.v438351942757</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-durable-task-step</artifactId>
-      <version>1246.v5524618ea_097</version>
+      <version>1398.vf6c9e89e5988</version>
       <scope>runtime</scope>
     </dependency>
   </dependencies>
@@ -104,7 +104,7 @@
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.53</version>
+        <version>3.60</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

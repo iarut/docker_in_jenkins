@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jenkins-ci.plugins</groupId>
   <artifactId>pipeline-stage-step</artifactId>
-  <version>312.v8cd10304c27a_</version>
+  <version>322.vecffa_99f371c</version>
   <packaging>hpi</packaging>
   <name>Pipeline: Stage Step</name>
   <description>The Jenkins Plugins Parent POM Project</description>
@@ -19,7 +19,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/pipeline-stage-step-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/pipeline-stage-step-plugin.git</developerConnection>
-    <tag>8cd10304c27a36009f99ecd942797e2762882b1a</tag>
+    <tag>ecffa99f371cab90782aea13d79535b2ce8b5914</tag>
     <url>https://github.com/jenkinsci/pipeline-stage-step-plugin</url>
   </scm>
   <distributionManagement>
@@ -36,13 +36,13 @@
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-api</artifactId>
-      <version>1213.v646def1087f9</version>
+      <version>1336.vee415d95c521</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins.workflow</groupId>
       <artifactId>workflow-step-api</artifactId>
-      <version>639.v6eca_cd8c04a_a_</version>
+      <version>678.v3ee58b_469476</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
@@ -51,7 +51,7 @@
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.53</version>
+        <version>3.61</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

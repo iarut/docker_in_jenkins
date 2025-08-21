@@ -1,0 +1,57 @@
+# Базовые для Pipeline
+workflow-aggregator
+workflow-job
+workflow-durable-task-step
+pipeline-utility-steps
+pipeline-github-lib
+pipeline-stage-view
+
+# Git + SCM
+git
+git-client
+github
+github-branch-source
+gitlab-plugin
+scm-api
+
+# UI и удобство
+blueocean
+dashboard-view
+build-monitor-plugin
+configuration-as-code
+credentials-binding
+config-file-provider
+
+# Maven / Java
+maven-plugin
+jdk-tool
+ant
+
+# Docker
+docker-workflow
+docker-commons
+docker-plugin
+docker-build-step
+
+# Агенты и узлы
+ssh-slaves
+matrix-auth
+antisamy-markup-formatter
+
+# Уведомления и интеграции
+slack
+email-ext
+mailer
+publish-over-ssh
+
+# Утилиты
+token-macro
+timestamper
+ansicolor
+credentials
+job-dsl
+cloudbees-folder
+
+# Безопасность
+role-strategy
+authorize-project
